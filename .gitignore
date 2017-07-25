@@ -15,6 +15,6 @@
 *.js
 
 # examples
-/examples/*.js
-/examples/*.js.map
+/examples/**/*.js
+/examples/**/*.js.map
 !/examples/_vendor/*.js
