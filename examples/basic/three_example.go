@@ -29,23 +29,21 @@ func main() {
 	document.Get("body").Call("appendChild", renderer.Get("domElement"))
 
 	// Create cube
-	geometry := three.NewBoxGeometry(200, 200, 200)
+	geometry := three.NewBoxGeometry(100, 100, 100)
 	material := three.NewMeshBasicMaterial(three.MeshBasicMaterialParameters{Color: three.NewColor(255, 0, 0)})
 	mesh = three.NewMesh(geometry, material)
+
 	scene.Add(mesh)
 
-	renderer.Render(scene, camera)
-	// animate()
+	animate()
 }
 
 func animate() {
 	js.Global.Call("requestAnimationFrame", animate)
 
-	// cube.SetRotationFromAxisAngle("x", cube.Rotation.X+0.01)
-	// cube.SetRotationFromAxisAngle("y", cube.Rotation.Y+0.01)
-	// cube.Rotation.X += 0.01
-	// cube.Rotation.Y += 0.02
-	// cube.RotateX()
+	pos := mesh.Object.Get("rotation")
+	pos.Set("x", pos.Get("x").Float()+float64(0.01))
+	pos.Set("y", pos.Get("y").Float()+float64(0.01))
 
 	renderer.Render(scene, camera)
 }
