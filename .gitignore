@@ -12,3 +12,9 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+*.js
+
+# examples
+/examples/*.js
+/examples/*.js.map
+!/examples/_vendor/*.js
