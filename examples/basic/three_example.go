@@ -23,7 +23,7 @@ func main() {
 
 	scene = three.NewScene()
 
-	light := three.NewDirectionalLight(three.NewColor(0, 0, 0), 1)
+	light := three.NewDirectionalLight(three.NewColor(255, 255, 255), 1)
 	light.Position.Set(1, 1, 1).Normalize()
 	scene.Add(light)
 
@@ -36,11 +36,11 @@ func main() {
 	geometry := three.NewBoxGeometry(100, 100, 100)
 
 	materialParams := three.NewMaterialParameters()
-	materialParams.Color = three.NewColor(255, 0, 0)
-	// materialParams.Shading = three.SmoothShading
-	// materialParams.Side = three.DoubleSide
-	material := three.NewMeshBasicMaterial(materialParams)
-	// material := three.NewMeshLambertMaterial(materialParams)
+	materialParams.Color = three.NewColor(0, 123, 211)
+	materialParams.Shading = three.SmoothShading
+	materialParams.Side = three.DoubleSide
+	// material := three.NewMeshBasicMaterial(materialParams)
+	material := three.NewMeshLambertMaterial(materialParams)
 	// material := three.NewMeshPhongMaterial(materialParams)
 	mesh = three.NewMesh(geometry, material)
 
