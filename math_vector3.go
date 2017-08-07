@@ -17,3 +17,8 @@ func (v Vector3) Set(x, y, z float64) Vector3 {
 	v.Call("set", x, y, z)
 	return v
 }
+
+func (v Vector3) Normalize() Vector3 {
+	v.Call("normalize")
+	return v
+}

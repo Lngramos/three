@@ -22,8 +22,8 @@ type BoxGeometryParameters struct {
 }
 
 // NewBoxGeometry creates a new BoxGeometry.
-func NewBoxGeometry(width, height, depth float64) BoxGeometry {
-	return BoxGeometry{
+func NewBoxGeometry(width, height, depth float64) *BoxGeometry {
+	return &BoxGeometry{
 		Object: three.Get("BoxGeometry").New(width, height, depth),
 	}
 }
