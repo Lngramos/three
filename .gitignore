@@ -18,3 +18,4 @@
 /examples/**/*.js
 /examples/**/*.js.map
 !/examples/_vendor/*.js
+examples/basic/basic
