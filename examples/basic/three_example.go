@@ -33,27 +33,27 @@ func main() {
 	document.Get("body").Call("appendChild", renderer.Get("domElement"))
 
 	// Create cube
-	// geometry := three.NewBoxGeometry(&three.BoxGeometryParameters{
-	// 	Width:  128,
-	// 	Height: 128,
-	// 	Depth:  128,
-	// })
-
-	geometry2 := three.NewCircleGeometry(three.CircleGeometryParameters{
-		Radius:      50,
-		Segments:    20,
-		ThetaStart:  0,
-		ThetaLength: 2,
+	geometry := three.NewBoxGeometry(&three.BoxGeometryParameters{
+		Width:  128,
+		Height: 128,
+		Depth:  128,
 	})
+
+	// geometry2 := three.NewCircleGeometry(three.CircleGeometryParameters{
+	// 	Radius:      50,
+	// 	Segments:    20,
+	// 	ThetaStart:  0,
+	// 	ThetaLength: 2,
+	// })
 
 	materialParams := three.NewMaterialParameters()
 	materialParams.Color = three.NewColor(0, 123, 211)
 	materialParams.Shading = three.SmoothShading
 	materialParams.Side = three.FrontSide
-	// material := three.NewMeshBasicMaterial(materialParams)
-	material := three.NewMeshLambertMaterial(materialParams)
+	material := three.NewMeshBasicMaterial(materialParams)
+	// material := three.NewMeshLambertMaterial(materialParams)
 	// material := three.NewMeshPhongMaterial(materialParams)
-	mesh = three.NewMesh(geometry2, material)
+	mesh = three.NewMesh(geometry, material)
 
 	scene.Add(mesh)
 
