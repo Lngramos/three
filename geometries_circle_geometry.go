@@ -23,7 +23,7 @@ type CircleGeometryParameters struct {
 // NewBoxGeometry creates a new BoxGeometry.
 func NewCircleGeometry(params CircleGeometryParameters) CircleGeometry {
 	return CircleGeometry{
-		Object: three.Get("BoxGeometry").New(
+		Object: three.Get("CircleGeometry").New(
 			params.Radius,
 			params.Segments,
 			params.ThetaStart,
