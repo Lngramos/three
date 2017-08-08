@@ -6,6 +6,8 @@ type Object3D interface {
 	ApplyMatrix(matrix *Matrix4)
 	Add(m Object3D)
 	ToJSON() interface{}
+	// Copy(source Object3D, recursive bool)
+
 	getInternalObject() *js.Object
 }
 

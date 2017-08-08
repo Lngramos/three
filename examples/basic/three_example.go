@@ -23,8 +23,8 @@ func main() {
 
 	scene = three.NewScene()
 
-	light := three.NewDirectionalLight(three.NewColor(255, 255, 255), 1)
-	light.Position.Set(1, 1, 1).Normalize()
+	light := three.NewDirectionalLight(three.NewColor(126, 255, 255), 0.5)
+	light.Position.Set(256, 256, 256).Normalize()
 	scene.Add(light)
 
 	renderer = three.NewWebGLRenderer()
@@ -33,16 +33,27 @@ func main() {
 	document.Get("body").Call("appendChild", renderer.Get("domElement"))
 
 	// Create cube
-	geometry := three.NewBoxGeometry(100, 100, 100)
+	// geometry := three.NewBoxGeometry(&three.BoxGeometryParameters{
+	// 	Width:  128,
+	// 	Height: 128,
+	// 	Depth:  128,
+	// })
+
+	geometry2 := three.NewCircleGeometry(three.CircleGeometryParameters{
+		Radius:      50,
+		Segments:    20,
+		ThetaStart:  0,
+		ThetaLength: 2,
+	})
 
 	materialParams := three.NewMaterialParameters()
 	materialParams.Color = three.NewColor(0, 123, 211)
 	materialParams.Shading = three.SmoothShading
-	materialParams.Side = three.DoubleSide
+	materialParams.Side = three.FrontSide
 	// material := three.NewMeshBasicMaterial(materialParams)
 	material := three.NewMeshLambertMaterial(materialParams)
 	// material := three.NewMeshPhongMaterial(materialParams)
-	mesh = three.NewMesh(geometry, material)
+	mesh = three.NewMesh(geometry2, material)
 
 	scene.Add(mesh)
 

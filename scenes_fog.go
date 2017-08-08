@@ -1,6 +1,6 @@
 package three
 
-//go:generate go run cmd/object3d_method_generator.go -typeName Fog -typeSlug fog
+//go:generate go run object3d_method_generator/main.go -typeName Fog -typeSlug fog
 
 import "github.com/gopherjs/gopherjs/js"
 

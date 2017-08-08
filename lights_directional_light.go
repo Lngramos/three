@@ -1,6 +1,6 @@
 package three
 
-//go:generate go run cmd/object3d_method_generator.go -typeName DirectionalLight -typeSlug directional_light
+//go:generate go run object3d_method_generator/main.go -typeName DirectionalLight -typeSlug directional_light
 
 import "github.com/gopherjs/gopherjs/js"
 

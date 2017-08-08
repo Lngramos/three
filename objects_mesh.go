@@ -1,6 +1,6 @@
 package three
 
-//go:generate go run cmd/object3d_method_generator.go -typeName Mesh -typeSlug mesh
+//go:generate go run object3d_method_generator/main.go -typeName Mesh -typeSlug mesh
 
 import (
 	"github.com/gopherjs/gopherjs/js"
@@ -9,18 +9,13 @@ import (
 type Mesh struct {
 	*js.Object
 
-	Rotation struct {
-		*js.Object
-
-		X float64 `js:"x"`
-		Y float64 `js:"y"`
-	} `js:"rotation"`
+	Position *Vector3 `js:"position"`
+	Rotation *Euler   `js:"rotation"`
 }
 
-// NewMesh aaa bbb ccc
-func NewMesh(geometry *BoxGeometry, material Object3D) *Mesh {
+func NewMesh(geometry Geometry, material Material) *Mesh {
 	return &Mesh{
-		Object: three.Get("Mesh").New(geometry.Object, material.getInternalObject()),
+		Object: three.Get("Mesh").New(geometry.getInternalObject(), material.getInternalObject()),
 	}
 }
 

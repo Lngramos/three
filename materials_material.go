@@ -38,5 +38,12 @@ func NewMaterialParameters() *MaterialParameters {
 }
 
 type Material interface {
-	getObject() *js.Object
+	OnBeforeCompile()
+	SetValues(values MaterialParameters)
+	ToJSON(meta interface{}) interface{}
+	Clone()
+	Copy(source Object3D)
+	Dispose()
+
+	getInternalObject() *js.Object
 }
